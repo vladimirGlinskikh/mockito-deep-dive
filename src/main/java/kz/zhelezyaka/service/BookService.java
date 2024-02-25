@@ -13,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BookService {
     private BookRepository bookRepository;
+    private EmailService emailService;
 
     public void addBook(Book book) {
         bookRepository.save(book);

@@ -13,7 +13,8 @@ class FakeDatabaseTest {
     @Test
     void testFakeDatabase() {
         BookRepository bookRepository = new FakeBookRepository();
-        BookService bookService = new BookService(bookRepository);
+        EmailService emailService = new DummyEmailService();
+        BookService bookService = new BookService(bookRepository, emailService);
 
         bookService.addBook(new Book(
                 "2318",
