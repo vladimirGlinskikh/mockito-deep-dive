@@ -2,6 +2,7 @@ package kz.zhelezyaka.service;
 
 import kz.zhelezyaka.model.Book;
 import kz.zhelezyaka.repository.BookRepository;
+import kz.zhelezyaka.repository.impl.BookRepositoryImpl;
 import kz.zhelezyaka.service.impl.EmailServiceImpl;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ class FakeDatabaseTest {
 
     @Test
     void testFakeDatabase() {
-        BookRepository bookRepository = new FakeBookRepository();
+        BookRepository bookRepository = new BookRepositoryImpl();
         EmailService emailService = new EmailServiceImpl();
         BookService bookService = new BookService(bookRepository, emailService);
 

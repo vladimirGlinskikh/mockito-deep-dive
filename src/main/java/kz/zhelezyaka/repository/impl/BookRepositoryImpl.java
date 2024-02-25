@@ -1,4 +1,4 @@
-package kz.zhelezyaka.service;
+package kz.zhelezyaka.repository.impl;
 
 import kz.zhelezyaka.model.Book;
 import kz.zhelezyaka.repository.BookRepository;
@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FakeBookRepository implements BookRepository {
+public class BookRepositoryImpl implements BookRepository {
     Map<String, Book> bookStore = new HashMap<>();
 
     @Override
