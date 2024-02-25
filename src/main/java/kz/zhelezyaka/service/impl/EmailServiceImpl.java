@@ -1,6 +1,8 @@
-package kz.zhelezyaka.service;
+package kz.zhelezyaka.service.impl;
 
-public class DummyEmailService implements EmailService {
+import kz.zhelezyaka.service.EmailService;
+
+public class EmailServiceImpl implements EmailService {
     @Override
     public void sendEmail(String message) {
         throw new AssertionError("Method has not been implemented yet.");
