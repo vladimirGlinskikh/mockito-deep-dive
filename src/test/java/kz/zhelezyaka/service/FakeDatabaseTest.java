@@ -7,6 +7,7 @@ import kz.zhelezyaka.service.impl.EmailServiceImpl;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,5 +31,18 @@ class FakeDatabaseTest {
                 LocalDate.now()));
 
         assertEquals(2, bookService.findNumberOfBooks());
+    }
+
+    @Test
+    void shouldGetAppliedDiscountBooks() {
+        BookRepository bookRepository = new BookRepositoryImpl();
+        BookService bookService = new BookService(bookRepository);
+
+        List<Book> newBooksWithAppliedDiscount =
+                bookService.getNewBooksWithAppliedDiscount(10, 7);
+
+        assertEquals(2, newBooksWithAppliedDiscount.size());
+        assertEquals(450, newBooksWithAppliedDiscount.get(0).getPrice());
+        assertEquals(360, newBooksWithAppliedDiscount.get(1).getPrice());
     }
 }
